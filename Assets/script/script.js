@@ -50,11 +50,11 @@ $(function () {
   ]
 
   let timeSlot = $(".time-block")
+  localStorage.setItem("TimeKey", JSON.parse(differentTimes))
 
   $(".saveBtn").on("click", function () {
     for (var i = 0; i < differentTimes.length; i++) {
-      localStorage.setItem("timeKey", differentTimes[i].value)
-      timeSlot = localStorage.getItem("timeKey")
+      timeSlot.innerHTML = localStorage.getItem("timeKey")
     }
   })
 
