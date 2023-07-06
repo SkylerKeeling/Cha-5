@@ -7,8 +7,7 @@ $(function () {
 
   //This code should
   // use the id in the containing time-block as a key to save the user input in
-  // local storage.
-
+  // local storage
   // HINT: What does `this` reference in the click listener
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
@@ -16,49 +15,22 @@ $(function () {
 
   // const saveButton = document.querySelectorAll("#saveBtn")
 
-  // let schedule = [
-  //   {time: "9 AM", inputText: ""},
-  //   {time: "10 AM", inputText: ""},
-  //   {time: "11 AM", inputText: ""},
-  //   {time: "12 PM", inputText: ""},
-  //   {time: "1 PM", inputText: ""},
-  //   {time: "2 PM", inputText: ""},
-  //   {time: "3 PM", inputText: ""},
-  //   {time: "4 PM", inputText: ""},
-  //   {time: "5 PM", inputText: ""},
-  // ]
-
-  const hour9am = document.getElementById("hour-9").value
-  const hour10am = document.getElementById("hour-10").value
-  const hour11am = document.getElementById("hour-11").value
-  const hour12pm = document.getElementById("hour-12").value
-  const hour1pm = document.getElementById("hour-1").value
-  const hour2pm = document.getElementById("hour-2").value
-  const hour3pm = document.getElementById("hour-3").value
-  const hour4pm = document.getElementById("hour-4").value
-  const hour5pm = document.getElementById("hour-5").value
-  let differentTimes = [
-    hour9am,
-    hour10am,
-    hour11am,
-    hour12pm,
-    hour1pm,
-    hour2pm,
-    hour3pm,
-    hour4pm,
-    hour5pm,
-  ]
   //save to storage
   $(".saveBtn").on("click", function () {
-    for (var i = 0; i < differentTimes.length; i++) {
-      localStorage.setItem("timeSlots", JSON.stringify(differentTimes[i]))
-      console.log(differentTimes)
-      differentTimes[i].textContent = JSON.parse(
-        localStorage.getItem("timeSlots")
-      )
-    }
+    var textValue = $(this).siblings(".description").val()
+    var hourKey = $(this).parent().attr("id")
+    localStorage.setItem(hourKey, textValue)
   })
   //print from storage
+  $("#hour-9 .description").val(localStorage.getItem("hour-9"))
+  $("#hour-10 .description").val(localStorage.getItem("hour-10"))
+  $("#hour-11 .description").val(localStorage.getItem("hour-11"))
+  $("#hour-12 .description").val(localStorage.getItem("hour-12"))
+  $("#hour-1 .description").val(localStorage.getItem("hour-1"))
+  $("#hour-2 .description").val(localStorage.getItem("hour-2"))
+  $("#hour-3 .description").val(localStorage.getItem("hour-3"))
+  $("#hour-4 .description").val(localStorage.getItem("hour-4"))
+  $("#hour-5 .description").val(localStorage.getItem("hour-5"))
 
   //
   // TODO: Add code to apply the past, present, or future class to each time
@@ -69,17 +41,20 @@ $(function () {
   //
   //
   function compareTime() {
-    const timeBlock = parseInt("hour")
     const currentTime = dayjs().format("H")
-    console.log(timeBlock)
+
     console.log(currentTime)
-    if (timeBlock > currentTime) {
-      $("time-block").addClass("future")
-    } else if (timeBlock == currentTime) {
-      $("time-block").addClass("present")
-    } else {
-      $("time-block").addClass("past")
-    }
+    $(".time-block").each(function () {
+      const timeBlock = parseInt($(this).attr("id").split("-")[1])
+      console.log(timeBlock)
+      if (timeBlock > currentTime) {
+        $(this).addClass("future")
+      } else if (timeBlock == currentTime) {
+        $(this).addClass("present")
+      } else {
+        $(this).addClass("past")
+      }
+    })
   }
 
   compareTime()
