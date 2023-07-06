@@ -10,7 +10,7 @@ Users can make notes for every working hour (9-5). The notes are saved to local 
 
 ## Screenshot
 
-(![Alt text](<images/Screen Shot 2023-07-06 at 4.41.26 PM.png>))
+![alt text](images/Screen Shot 2023-07-06 at 4.41.26 PM.png)
 
 ## Application link
 
