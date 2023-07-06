@@ -10,7 +10,7 @@ Users can make notes for every working hour (9-5). The notes are saved to local 
 
 ## Screenshot
 
-![alt text](images/Screen Shot 2023-07-06 at 4.41.26 PM.png)
+![alt text](https://github.com/SkylerKeeling/Cha-5/blob/main/Assets/images/Screen%20Shot%202023-07-06%20at%204.41.26%20PM.png)
 
 ## Application link
 
