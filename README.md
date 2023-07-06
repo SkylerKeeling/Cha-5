@@ -14,6 +14,8 @@ Users can make notes for every working hour (9-5). The notes are saved to local 
 
 ## Application link
 
+https://skylerkeeling.github.io/Cha-5/
+
 ## License
 
 Distributed under the MIT license.
