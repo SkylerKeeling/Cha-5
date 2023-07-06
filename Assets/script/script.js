@@ -28,15 +28,15 @@ $(function () {
   //   {time: "5 PM", inputText: ""},
   // ]
 
-  const hour9am = document.querySelector("hour-9")
-  const hour10am = document.querySelector("hour-10")
-  const hour11am = document.querySelector("hour-11")
-  const hour12pm = document.querySelector("hour-12")
-  const hour1pm = document.querySelector("hour-1")
-  const hour2pm = document.querySelector("hour-2")
-  const hour3pm = document.querySelector("hour-3")
-  const hour4pm = document.querySelector("hour-4")
-  const hour5pm = document.querySelector("hour-5")
+  const hour9am = document.getElementById("hour-9").value
+  const hour10am = document.getElementById("hour-10").value
+  const hour11am = document.getElementById("hour-11").value
+  const hour12pm = document.getElementById("hour-12").value
+  const hour1pm = document.getElementById("hour-1").value
+  const hour2pm = document.getElementById("hour-2").value
+  const hour3pm = document.getElementById("hour-3").value
+  const hour4pm = document.getElementById("hour-4").value
+  const hour5pm = document.getElementById("hour-5").value
   let differentTimes = [
     hour9am,
     hour10am,
@@ -48,15 +48,14 @@ $(function () {
     hour4pm,
     hour5pm,
   ]
-
-  let timeSlot = $(".time-block")
-  localStorage.setItem("TimeKey", JSON.parse(differentTimes))
-
+  //save to storage
   $(".saveBtn").on("click", function () {
     for (var i = 0; i < differentTimes.length; i++) {
-      timeSlot.innerHTML = localStorage.getItem("timeKey")
+      localStorage.setItem("timeSlots", JSON.stringify(differentTimes[i]))
+      console.log(differentTimes)
     }
   })
+  //print from storage
 
   //
   // TODO: Add code to apply the past, present, or future class to each time
